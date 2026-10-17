@@ -1,0 +1,140 @@
+{
+  "alcorn-state-university": {
+    "name": "Alcorn State University",
+    "officialWebsite": "https://www.alcorn.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "belhaven-university": {
+    "name": "Belhaven University",
+    "officialWebsite": "https://www.belhaven.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "blue-mountain-christian-university": {
+    "name": "Blue Mountain Christian University",
+    "officialWebsite": "https://www.bmc.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "delta-state-university": {
+    "name": "Delta State University",
+    "officialWebsite": "https://www.deltastate.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "jackson-state-university": {
+    "name": "Jackson State University",
+    "officialWebsite": "https://www.jsums.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "millsaps-college": {
+    "name": "Millsaps College",
+    "officialWebsite": "https://millsaps.edu/",
+    "keptExisting": true,
+    "rejected": [
+      "low entropy https://millsaps.edu/wp-content/uploads/2023/08/millsaps-logo-stacked.png"
+    ],
+    "syncedAt": "2026-10-02T15:00:23.642Z"
+  },
+  "mississippi-state-university": {
+    "name": "Mississippi State University",
+    "officialWebsite": "https://www.msstate.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "mississippi-university-for-women": {
+    "name": "Mississippi University for Women",
+    "officialWebsite": "https://www.muw.edu/",
+    "selected": {
+      "src": "https://www.muw.edu/ur/wp-content/uploads/sites/57/2024/01/W_Logo_blue_stacked.jpg",
+      "alt": "Blue Stacked Logo",
+      "score": 5450,
+      "renderedWidth": 373,
+      "renderedHeight": 276.84375,
+      "ratio": 1.347330398464838,
+      "page": "https://www.muw.edu/ur/branding/logos-wordmarks/"
+    },
+    "syncedAt": "2026-10-02T15:00:29.207Z"
+  },
+  "the-piney-woods-school": {
+    "name": "The Piney Woods School",
+    "officialWebsite": "https://www.pineywoods.org/",
+    "keptExisting": true,
+    "rejected": [],
+    "syncedAt": "2026-10-02T15:00:33.807Z"
+  },
+  "st-andrews-episcopal-school": {
+    "name": "St. Andrew's Episcopal School",
+    "officialWebsite": "https://www.gosaints.org/",
+    "selected": {
+      "src": "https://bbk12e1-cdn.myschoolcdn.com/ftpimages/968/logo/2021-ST-ANDREWS-seal-footer.png",
+      "alt": "St. Andrews Episcopal School",
+      "score": 4700,
+      "renderedWidth": 235.421875,
+      "renderedHeight": 235.421875,
+      "ratio": 1,
+      "page": "https://www.gosaints.org/"
+    },
+    "syncedAt": "2026-10-02T15:00:38.891Z"
+  },
+  "tougaloo-college": {
+    "name": "Tougaloo College",
+    "officialWebsite": "https://www.tougaloo.edu/",
+    "selected": {
+      "src": "https://www.tougaloo.edu/sites/default/files/2025-09/streched%20logo.png",
+      "alt": "Tougaloo College",
+      "score": 2250,
+      "renderedWidth": 251.9375,
+      "renderedHeight": 80,
+      "ratio": 3.14921875,
+      "page": "https://www.tougaloo.edu/about-tougaloo-college/communications"
+    },
+    "syncedAt": "2026-10-02T15:00:48.415Z"
+  },
+  "university-of-mississippi": {
+    "name": "University of Mississippi",
+    "officialWebsite": "https://olemiss.edu/",
+    "selected": {
+      "src": "https://marvel-b1-cdn.bc0a.com/f00000000246364/olemiss.edu/departments/chancellor/marketing-communications/assets/script.png",
+      "alt": "",
+      "score": 4050,
+      "renderedWidth": 359.59375,
+      "renderedHeight": 359.59375,
+      "ratio": 1,
+      "page": "https://olemiss.edu/marcomm/brand-services/"
+    },
+    "syncedAt": "2026-10-02T15:00:59.881Z"
+  },
+  "the-university-of-southern-mississippi": {
+    "name": "The University of Southern Mississippi",
+    "officialWebsite": "https://www.usm.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "william-carey-university": {
+    "name": "William Carey University",
+    "officialWebsite": "https://www.wmcarey.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "meridian-community-college": {
+    "name": "Meridian Community College",
+    "officialWebsite": "https://meridiancc.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "mississippi-christian-university": {
+    "name": "Mississippi Christian University",
+    "officialWebsite": "https://www.mc.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  },
+  "mississippi-valley-state-university": {
+    "name": "Mississippi Valley State University",
+    "officialWebsite": "https://www.mvsu.edu/",
+    "source": "user-approved logo",
+    "pinned": true
+  }
+}
