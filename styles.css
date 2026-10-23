@@ -894,3 +894,45 @@ button{font:inherit}
     max-width:260px;
   }
 }
+
+
+/* Outreach partner identity cards */
+.partner-item{
+  gap:22px;
+}
+.partner-logo-text{
+  flex:0 0 150px;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:#fff;
+  color:var(--navy);
+  font-weight:900;
+  letter-spacing:.02em;
+  border:1px solid var(--line);
+}
+.educationusa-wordmark{
+  color:#174f86;
+  font-size:1.15rem;
+}
+.nice-wordmark{
+  font-size:1.35rem;
+}
+.partner-site-pending{
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:.88rem;
+}
+@media(max-width:700px){
+  .partner-item{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .partner-logo-text{
+    flex-basis:auto;
+    width:180px;
+  }
+}
