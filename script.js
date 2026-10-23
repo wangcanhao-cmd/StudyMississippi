@@ -113,13 +113,14 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
   setClosestId('.section-kicker', 'Collaboration Records', '.page-section', 'collaboration-records');
   setClosestId('.section-kicker', 'Partners', 'article', 'partners');
 
-  setClosestId('.section-kicker', 'Board Meeting Records & Resolutions', 'article', 'board-records');
-  setClosestId('.section-kicker', 'Annual Conference', 'article', 'annual-conference');
+  setClosestId('h2', 'MAIE Executive Board', '.page-section', 'executive-board');
+  setClosestId('h2', 'News & Events', '.page-section', 'news-events');
 
   const menus = {
     'about.html': [
       ['Mission', 'mission'],
       ['Board of Officers', 'board-officers'],
+      ['MAIE Executive Board', 'executive-board'],
       ['Former Officers', 'former-officers'],
       ['Strategic Plan', 'strategic-plan'],
       ['Constitution', 'constitution']
@@ -152,8 +153,8 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
       ['Partners', 'partners']
     ],
     'governance.html': [
-      ['Board Meeting Records & Resolutions', 'board-records'],
-      ['MAIE / StudyMississippi Annual Conference Information', 'annual-conference']
+      ['State Meetings', 'state-meetings'],
+      ['News & Events', 'news-events']
     ]
   };
 
