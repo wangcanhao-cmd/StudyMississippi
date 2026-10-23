@@ -227,7 +227,7 @@ button{font:inherit}
 }
 
 /* Multi-page layout */
-.page-hero{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;padding:82px 0 76px;position:relative;overflow:hidden}
+.page-hero{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;height:340px;padding:0;position:relative;overflow:hidden;display:flex;align-items:center}
 .page-hero::after{content:"";position:absolute;width:360px;height:360px;border:55px solid rgba(244,178,35,.13);border-radius:50%;right:-90px;bottom:-160px}
 .page-hero .container{position:relative;z-index:1}
 .page-hero .section-kicker{color:var(--gold)}
@@ -820,3 +820,9 @@ button{font:inherit}
 
 /* Contact form layout */
 .contact-form-card{max-width:760px;margin:0 auto}
+
+
+/* Consistent inner-page hero height */
+@media(max-width:700px){
+  .page-hero{height:auto;min-height:300px;padding:56px 0}
+}
