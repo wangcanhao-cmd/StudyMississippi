@@ -994,3 +994,43 @@ button{font:inherit}
     height:76px;
   }
 }
+
+
+/* Outreach logo sizing sync */
+.partner-logo-wrap{
+  flex:0 0 245px;
+  height:112px;
+}
+.educationusa-logo-wrap{
+  flex-basis:260px;
+}
+.ice-logo-wrap{
+  flex-basis:280px;
+  height:116px;
+}
+.vendor-item{
+  grid-template-columns:260px minmax(0,1fr);
+  min-height:190px;
+}
+.vendor-logo-wrap{
+  height:138px;
+  padding:4px;
+}
+.partner-logo-wrap img,
+.vendor-logo-wrap img{
+  max-width:100%;
+  max-height:100%;
+}
+@media(max-width:700px){
+  .partner-logo-wrap,
+  .educationusa-logo-wrap,
+  .ice-logo-wrap{
+    flex-basis:auto;
+    width:min(100%,300px);
+    height:104px;
+  }
+  .vendor-logo-wrap{
+    max-width:300px;
+    height:128px;
+  }
+}
