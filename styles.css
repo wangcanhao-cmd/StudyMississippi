@@ -812,3 +812,7 @@ button{font:inherit}
     height:58px;
   }
 }
+
+
+/* Contact form submit sizing */
+.contact-submit{justify-self:start;width:auto}
