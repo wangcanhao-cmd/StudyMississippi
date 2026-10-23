@@ -213,7 +213,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
 /* Global stylesheet cache version */
 (() => {
-  const version = "20261023-contact-layout-3";
+  const version = "20261023-unified-page-hero";
   document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute("href") || "";
     if (/^styles\.css(?:\?|$)/.test(href)) {
