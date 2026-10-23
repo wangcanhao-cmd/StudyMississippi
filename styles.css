@@ -815,8 +815,8 @@ button{font:inherit}
 
 
 /* Contact form submit sizing */
-.pending-form .contact-submit{justify-self:center;align-self:start;width:auto;min-width:220px;min-height:54px;padding:0 36px;margin-top:10px;font-size:1rem}
+.pending-form .contact-submit{justify-self:center;align-self:start;width:280px;min-width:280px;min-height:56px;padding:0 38px;margin:14px auto 0;font-size:1rem}
 
 
 /* Contact form layout */
-.contact-form-card{max-width:860px;margin:0 auto}
+.contact-form-card{max-width:760px;margin:0 auto}
