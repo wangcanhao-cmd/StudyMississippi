@@ -815,4 +815,4 @@ button{font:inherit}
 
 
 /* Contact form submit sizing */
-.pending-form .contact-submit{justify-self:start;align-self:start;width:auto;min-width:0;padding-left:24px;padding-right:24px}
+.pending-form .contact-submit{justify-self:start;align-self:start;width:auto;min-width:150px;min-height:54px;padding:0 30px;margin-top:6px;font-size:1rem}
