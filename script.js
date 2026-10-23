@@ -111,7 +111,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
   setClosestId('.section-kicker', 'Careers & Internships', 'article', 'careers-internships');
 
   setClosestId('.section-kicker', 'Collaboration Records', '.page-section', 'collaboration-records');
-  setClosestId('.section-kicker', 'Partners', 'article', 'partners');
+  setClosestId('h2', 'Partners', '.page-section', 'partners');
 
   setClosestId('h2', 'MAIE Executive Board', '.page-section', 'executive-board');
   setClosestId('h2', 'News & Events', '.page-section', 'news-events');
@@ -213,7 +213,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
 /* Global stylesheet cache version */
 (() => {
-  const version = "20261023-outreach-partners-3";
+  const version = "20261023-outreach-anchor-fix";
   document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute("href") || "";
     if (/^styles\.css(?:\?|$)/.test(href)) {
