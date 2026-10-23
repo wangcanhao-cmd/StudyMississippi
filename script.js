@@ -111,7 +111,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
   setClosestId('.section-kicker', 'Careers & Internships', 'article', 'careers-internships');
 
   setClosestId('.section-kicker', 'Collaboration Records', '.page-section', 'collaboration-records');
-  setClosestId('h2', 'Partners', '.page-section', 'partners');
+  setClosestId('h2', 'Partners', '.page-section', 'partnerships');
 
   setClosestId('h2', 'MAIE Executive Board', '.page-section', 'executive-board');
   setClosestId('h2', 'News & Events', '.page-section', 'news-events');
@@ -150,7 +150,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
     ],
     'outreach-partnerships.html': [
       ['Collaboration Records', 'collaboration-records'],
-      ['Partners', 'partners']
+      ['Partnerships', 'partnerships']
     ],
     'news.html': [
       ['State Meetings', 'state-meetings'],
@@ -213,7 +213,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
 /* Global stylesheet cache version */
 (() => {
-  const version = "20261023-outreach-anchor-fix";
+  const version = "20261023-outreach-logo-sync";
   document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute("href") || "";
     if (/^styles\.css(?:\?|$)/.test(href)) {
