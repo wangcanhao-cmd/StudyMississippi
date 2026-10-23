@@ -152,7 +152,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
       ['Collaboration Records', 'collaboration-records'],
       ['Partners', 'partners']
     ],
-    'governance.html': [
+    'news.html': [
       ['State Meetings', 'state-meetings'],
       ['News & Events', 'news-events']
     ]
