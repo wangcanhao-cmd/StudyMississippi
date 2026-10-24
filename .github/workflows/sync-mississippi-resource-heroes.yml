@@ -95,6 +95,21 @@ jobs:
               url: "https://visitmississippi.org/",
               out: "assets/external/visit-mississippi-hero.webp",
             },
+            {
+              name: "open-doors",
+              url: "https://opendoorsdata.org/",
+              out: "assets/external/open-doors-hero.webp",
+            },
+            {
+              name: "study-in-the-states",
+              url: "https://studyinthestates.dhs.gov/",
+              out: "assets/external/study-in-the-states-hero.webp",
+            },
+            {
+              name: "fulbright",
+              url: "https://fulbrightprogram.org/",
+              out: "assets/external/fulbright-hero.webp",
+            },
           ];
 
           const browser = await chromium.launch({headless:true});
