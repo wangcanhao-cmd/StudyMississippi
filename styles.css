@@ -1100,8 +1100,10 @@ button{font:inherit}
   background:linear-gradient(180deg,rgba(5,22,40,.10) 5%,rgba(5,22,40,.30) 48%,rgba(5,22,40,.94) 100%);
 }
 .study-open-doors{
-  background-image:url("assets/external/open-doors-hero.webp"),url("assets/biloxi-lighthouse-hero-20261002.webp");
-  background-position:center top;
+  background-color:#f4f7fb;
+  background-image:url("https://opendoorsdata.org/wp-content/themes/open-doors/g/IIE%20Open%20Doors%20-%20Logo.png");
+  background-size:min(72%,980px) auto;
+  background-position:center;
 }
 .study-ms-promo{
   background-image:url("https://i.ytimg.com/vi/x5Tc5L4ZQKg/maxresdefault.jpg"),url("assets/external/visit-mississippi-hero.webp");
@@ -1114,13 +1116,54 @@ button{font:inherit}
   background-image:url("assets/external/visit-mississippi-hero.webp"),url("assets/biloxi-lighthouse-hero-20261002.webp");
 }
 .study-states{
-  background-image:url("assets/external/study-in-the-states-hero.webp"),url("assets/external/explore-mississippi-hero.webp");
+  background-image:url("https://studyinthestates.dhs.gov/sites/default/files/images/welcome_image%402x_0.png");
+  background-position:center;
 }
 .study-opportunities{
-  background-image:url("assets/external/fulbright-hero.webp"),url("assets/biloxi-lighthouse-hero-20261002.webp");
+  background-image:url("https://fulbrightprogram.org/wp-content/uploads/2024/06/JirapornInthasan.jpeg");
+  background-position:center 38%;
+}
+.study-static-card{
+  cursor:default;
+}
+.study-static-card:hover{
+  transform:none;
+  box-shadow:0 16px 42px rgba(7,31,59,.12);
+}
+.study-why-points{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin-top:22px;
+}
+.study-why-points div{
+  padding:16px 18px;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:14px;
+  background:rgba(7,31,59,.34);
+  backdrop-filter:blur(5px);
+}
+.study-why-points strong,
+.study-why-points span{
+  display:block;
+}
+.study-why-points strong{
+  margin-bottom:6px;
+  color:#fff;
+}
+.study-why-points span{
+  color:#e5edf5;
+  font-size:.9rem;
+  line-height:1.55;
+}
+.study-source-note{
+  margin-top:18px !important;
+  font-size:.78rem;
+  color:#d7e1ea !important;
 }
 @media(max-width:700px){
   .study-link-stack{gap:18px}
   .study-link-card{min-height:310px}
   .study-link-card .discover-feature-content{padding:28px 24px}
+  .study-why-points{grid-template-columns:1fr}
 }
