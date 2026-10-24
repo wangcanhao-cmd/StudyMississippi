@@ -101,15 +101,6 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
   const directory = document.querySelector('#directory');
   if (directory) directory.id = 'directory';
 
-  setClosestId('.section-kicker', 'ESL Programs', 'article', 'esl-programs');
-  setClosestId('.section-kicker', 'Study Abroad', 'article', 'study-abroad');
-  setClosestId('.section-kicker', 'Partner Agencies', 'article', 'partner-agencies');
-
-  setClosestId('.section-kicker', 'Overview & Data', 'article', 'overview-data');
-  setClosestId('.section-kicker', 'Campus Life', 'article', 'campus-life');
-  setClosestId('.section-kicker', 'Cultural Activities', 'article', 'cultural-activities');
-  setClosestId('.section-kicker', 'Careers & Internships', 'article', 'careers-internships');
-
   setClosestId('.section-kicker', 'Collaboration Records', '.page-section', 'collaboration-records');
   setClosestId('h2', 'Partners', '.page-section', 'partnerships');
 
@@ -136,17 +127,6 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
       ['Visa & Immigration Information', 'visa'],
       ['Health Insurance', 'insurance'],
       ['CPT / OPT Information', 'cpt-opt']
-    ],
-    'international-programs.html': [
-      ['ESL Programs', 'esl-programs'],
-      ['Study Abroad', 'study-abroad'],
-      ['Partner Agencies', 'partner-agencies']
-    ],
-    'international-students.html': [
-      ['International Student Overview and Data', 'overview-data'],
-      ['Campus Life', 'campus-life'],
-      ['Cultural Activities', 'cultural-activities'],
-      ['Careers & Internship Opportunities', 'careers-internships']
     ],
     'outreach-partnerships.html': [
       ['Collaboration Records', 'collaboration-records'],
