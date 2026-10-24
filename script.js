@@ -123,10 +123,12 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
     ],
     'study-in-mississippi.html': [
       ['Mississippi Institutions Directory', 'directory'],
-      ['International Admissions Requirements', 'admissions'],
-      ['Visa & Immigration Information', 'visa'],
-      ['Health Insurance', 'insurance'],
-      ['CPT / OPT Information', 'cpt-opt']
+      ['Open Doors data', 'open-doors'],
+      ['MS Promo Video', 'ms-promo-video'],
+      ['Connect with us', 'connect-with-us'],
+      ['Why study in MS?', 'why-study-ms'],
+      ['Study in the States', 'study-in-the-states'],
+      ['Opportunities', 'opportunities']
     ],
     'outreach-partnerships.html': [
       ['Collaboration Records', 'collaboration-records'],
