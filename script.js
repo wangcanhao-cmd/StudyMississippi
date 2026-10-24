@@ -188,7 +188,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
 /* Global stylesheet cache version */
 (() => {
-  const version = "20261024-nav-gap-15";
+  const version = "20261024-contact-chevron-space";
   document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute("href") || "";
     if (/^styles\.css(?:\?|$)/.test(href)) {
