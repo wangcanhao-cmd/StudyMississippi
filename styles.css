@@ -1167,3 +1167,62 @@ button{font:inherit}
   .study-link-card .discover-feature-content{padding:28px 24px}
   .study-why-points{grid-template-columns:1fr}
 }
+
+
+/* 2026-10-24 Study in Mississippi refinements */
+.study-static-card{
+  background-image:none !important;
+  background:#fff !important;
+  border:1px solid var(--line);
+  box-shadow:0 16px 42px rgba(7,31,59,.08);
+  color:var(--navy);
+}
+.study-static-card .discover-feature-shade{
+  display:none;
+}
+.study-static-card .discover-feature-content{
+  color:var(--navy);
+}
+.study-static-card .external-badge{
+  color:var(--red);
+  background:#fff;
+  border-color:var(--line);
+  backdrop-filter:none;
+}
+.study-static-card h3{
+  color:var(--navy);
+}
+.study-static-card p,
+.study-static-card .study-source-note{
+  color:var(--muted) !important;
+}
+.study-static-card .study-why-points div{
+  background:#f7f9fb;
+  border-color:var(--line);
+  backdrop-filter:none;
+}
+.study-static-card .study-why-points strong{
+  color:var(--navy);
+}
+.study-static-card .study-why-points span{
+  color:var(--muted);
+}
+.study-states,
+.study-opportunities{
+  min-height:540px;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-color:#071f3b;
+}
+.study-states{
+  background-position:center 35%;
+}
+.study-opportunities{
+  background-position:center;
+}
+@media(max-width:700px){
+  .study-states,
+  .study-opportunities{
+    min-height:430px;
+  }
+}
