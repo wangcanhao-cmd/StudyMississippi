@@ -1075,3 +1075,52 @@ button{font:inherit}
     flex-basis:auto;
   }
 }
+
+
+/* Study in Mississippi full-width resource banners */
+.study-resource-band{
+  background:#f5f8fb;
+}
+.study-link-stack{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:26px;
+}
+.study-link-card{
+  width:100%;
+  min-height:360px;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+}
+.study-link-card .discover-feature-content{
+  padding:38px 42px;
+}
+.study-link-card .discover-feature-shade{
+  background:linear-gradient(180deg,rgba(5,22,40,.10) 5%,rgba(5,22,40,.30) 48%,rgba(5,22,40,.94) 100%);
+}
+.study-open-doors{
+  background-image:url("assets/external/open-doors-hero.webp"),url("assets/biloxi-lighthouse-hero-20261002.webp");
+  background-position:center top;
+}
+.study-ms-promo{
+  background-image:url("https://i.ytimg.com/vi/x5Tc5L4ZQKg/maxresdefault.jpg"),url("assets/external/visit-mississippi-hero.webp");
+}
+.study-connect{
+  background-image:url("assets/biloxi-lighthouse-hero-20261002.webp");
+  background-position:center 42%;
+}
+.study-why-ms{
+  background-image:url("assets/external/visit-mississippi-hero.webp"),url("assets/biloxi-lighthouse-hero-20261002.webp");
+}
+.study-states{
+  background-image:url("assets/external/study-in-the-states-hero.webp"),url("assets/external/explore-mississippi-hero.webp");
+}
+.study-opportunities{
+  background-image:url("assets/external/fulbright-hero.webp"),url("assets/biloxi-lighthouse-hero-20261002.webp");
+}
+@media(max-width:700px){
+  .study-link-stack{gap:18px}
+  .study-link-card{min-height:310px}
+  .study-link-card .discover-feature-content{padding:28px 24px}
+}
