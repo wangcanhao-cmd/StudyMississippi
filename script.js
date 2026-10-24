@@ -87,10 +87,6 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
   };
 
   // Stable in-page anchors for the formal website structure.
-  setClosestId('.section-kicker', 'Mission', 'article', 'mission');
-  setClosestId('.section-kicker', 'Board of Officers', 'article', 'board-officers');
-  setClosestId('h2', 'Strategic Plan', 'article', 'strategic-plan');
-  setClosestId('h2', 'Constitution', 'article', 'constitution');
 
   setClosestId('.section-kicker', 'Institution Profiles', 'article', 'institution-profiles');
   setClosestId('.section-kicker', 'International Office Contacts', 'article', 'international-office-contacts');
@@ -110,11 +106,8 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
   const menus = {
     'about.html': [
       ['Mission', 'mission'],
-      ['Board of Officers', 'board-officers'],
       ['MAIE Executive Board', 'executive-board'],
-      ['Former Officers', 'former-officers'],
-      ['Strategic Plan', 'strategic-plan'],
-      ['Constitution', 'constitution']
+      ['Former Officers', 'former-officers']
     ],
     'member-institutions.html': [
       ['Institution Profiles', 'institution-profiles'],
@@ -195,7 +188,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
 /* Global stylesheet cache version */
 (() => {
-  const version = "20261024-study-card-refine-3";
+  const version = "20261024-about-cleanup";
   document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute("href") || "";
     if (/^styles\.css(?:\?|$)/.test(href)) {
