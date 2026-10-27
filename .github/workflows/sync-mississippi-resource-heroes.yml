@@ -101,9 +101,7 @@ jobs:
           const manifest = {};
 
           async function downloadImage(page, url, referer) {
-            // Download through a real Chromium navigation instead of Node fetch().
-            // This preserves the browser session/cookies and avoids external sites
-            // returning an HTML bot/challenge page to GitHub runner HTTP requests.
+            // First try a normal browser navigation to the image URL.
             const imagePage = await page.context().newPage();
             try {
               const res = await imagePage.goto(url, {
@@ -121,6 +119,71 @@ jobs:
             } finally {
               await imagePage.close();
             }
+          }
+
+          async function downloadImageInPage(page, url) {
+            // Some sites return an HTML challenge to direct image navigation while
+            // still allowing the image to load from inside their own page. Fetch it
+            // in the already-loaded same-origin page and return the exact bytes.
+            const payload = await page.evaluate(async absoluteUrl => {
+              const response = await fetch(absoluteUrl, {
+                credentials: "include",
+                cache: "no-store"
+              });
+              const type = response.headers.get("content-type") || "";
+              if (!response.ok) throw new Error(`HTTP ${response.status}`);
+              if (!type.startsWith("image/")) throw new Error(`Not an image (${type})`);
+
+              const bytes = new Uint8Array(await response.arrayBuffer());
+              let binary = "";
+              const chunk = 0x8000;
+              for (let i = 0; i < bytes.length; i += chunk) {
+                binary += String.fromCharCode(...bytes.subarray(i, i + chunk));
+              }
+              return {type, base64:btoa(binary)};
+            }, url);
+
+            return Buffer.from(payload.base64, "base64");
+          }
+
+          async function captureRenderedHero(page) {
+            // Last-resort fallback: capture the hero/video area as Chromium actually
+            // renders it. This avoids breaking the whole sync when an origin blocks
+            // direct binary access to the underlying image file.
+            const selector = await page.evaluate(() => {
+              document.querySelectorAll("[data-studyms-hero-capture]").forEach(el => {
+                el.removeAttribute("data-studyms-hero-capture");
+              });
+
+              const scored = [];
+              for (const el of document.querySelectorAll("video, main section, main div, body > div")) {
+                const r = el.getBoundingClientRect();
+                if (r.width < 800 || r.height < 300) continue;
+                if (r.height > 1300) continue;
+                if (r.bottom < 0 || r.top > 900) continue;
+                const style = getComputedStyle(el);
+                if (style.display === "none" || style.visibility === "hidden") continue;
+
+                const visibleTop = Math.max(0, r.top);
+                const visibleBottom = Math.min(1000, r.bottom);
+                const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+                const area = Math.min(1600, r.width) * visibleHeight;
+                const topBonus = r.top < 180 ? 2.2 : r.top < 450 ? 1.4 : 0.8;
+                const videoBonus = el.tagName === "VIDEO" ? 2.5 : 1;
+                scored.push({el, score:area * topBonus * videoBonus});
+              }
+
+              scored.sort((a,b) => b.score - a.score);
+              const best = scored[0]?.el;
+              if (!best) return null;
+              best.setAttribute("data-studyms-hero-capture", "1");
+              return "[data-studyms-hero-capture=\"1\"]";
+            });
+
+            if (!selector) throw new Error("No suitable rendered hero element found");
+            const locator = page.locator(selector);
+            await locator.scrollIntoViewIfNeeded();
+            return await locator.screenshot({type:"png"});
           }
 
           for (const target of targets) {
@@ -184,39 +247,77 @@ jobs:
             let errors = [];
 
             for (const c of candidates) {
-              try {
-                const absolute = new URL(c.url, page.url()).href;
-                const b = await downloadImage(page, absolute, target.url);
-                const meta = await sharp(b, {failOn:"none"}).metadata();
-                if ((meta.width || 0) < 800 || (meta.height || 0) < 350) {
-                  errors.push(`too small ${meta.width}x${meta.height}: ${absolute}`);
-                  continue;
+              const absolute = new URL(c.url, page.url()).href;
+              for (const method of ["direct", "in-page"]) {
+                try {
+                  const b = method === "direct"
+                    ? await downloadImage(page, absolute, target.url)
+                    : await downloadImageInPage(page, absolute);
+                  const meta = await sharp(b, {failOn:"none"}).metadata();
+                  if ((meta.width || 0) < 800 || (meta.height || 0) < 350) {
+                    errors.push(`${method}: too small ${meta.width}x${meta.height}: ${absolute}`);
+                    continue;
+                  }
+                  chosen = {
+                    ...c,
+                    url:absolute,
+                    kind: method === "direct" ? c.kind : `${c.kind}-same-origin-fetch`,
+                    intrinsicWidth:meta.width,
+                    intrinsicHeight:meta.height
+                  };
+                  buffer = b;
+                  break;
+                } catch (e) {
+                  errors.push(`${method}: ${String(e)}`);
                 }
-                chosen = {...c, url:absolute, intrinsicWidth:meta.width, intrinsicHeight:meta.height};
-                buffer = b;
-                break;
-              } catch (e) {
-                errors.push(String(e));
+              }
+              if (chosen && buffer) break;
+            }
+
+            // Visit Mississippi currently uses this hero-video poster. If the
+            // generic candidate extraction misses it, retry the known URL using both
+            // transfer methods before falling back to a rendered hero screenshot.
+            if (!chosen && target.name === "visit-mississippi") {
+              const fallback = "https://visitmississippi.org/wp-content/uploads/2025/03/birthplace-cover-poster-scaled.jpg";
+              for (const method of ["direct", "in-page"]) {
+                try {
+                  buffer = method === "direct"
+                    ? await downloadImage(page, fallback, target.url)
+                    : await downloadImageInPage(page, fallback);
+                  const meta = await sharp(buffer).metadata();
+                  chosen = {
+                    url:fallback,
+                    kind:method === "direct" ? "known-video-poster" : "known-video-poster-same-origin-fetch",
+                    intrinsicWidth:meta.width,
+                    intrinsicHeight:meta.height,
+                    score:0
+                  };
+                  break;
+                } catch (e) {
+                  errors.push(`known-poster ${method}: ${String(e)}`);
+                }
               }
             }
 
-            // Visit Mississippi currently uses a hero-video poster. Keep a factual fallback
-            // to the same poster if page markup changes before the extractor catches up.
-            if (!chosen && target.name === "visit-mississippi") {
-              const fallback = "https://visitmississippi.org/wp-content/uploads/2025/03/birthplace-cover-poster-scaled.jpg";
-              buffer = await downloadImage(page, fallback, target.url);
-              const meta = await sharp(buffer).metadata();
-              chosen = {
-                url:fallback,
-                kind:"known-video-poster",
-                intrinsicWidth:meta.width,
-                intrinsicHeight:meta.height,
-                score:0
-              };
+            if (!chosen || !buffer) {
+              try {
+                buffer = await captureRenderedHero(page);
+                const meta = await sharp(buffer).metadata();
+                chosen = {
+                  url:target.url,
+                  kind:"rendered-hero-screenshot",
+                  intrinsicWidth:meta.width,
+                  intrinsicHeight:meta.height,
+                  score:0
+                };
+                console.log(`${target.name}: binary image access failed; using rendered hero screenshot fallback.`);
+              } catch (e) {
+                errors.push(`rendered screenshot: ${String(e)}`);
+              }
             }
 
             if (!chosen || !buffer) {
-              throw new Error(`Could not resolve a clean hero image for ${target.url}. ${errors.slice(0,5).join(" | ")}`);
+              throw new Error(`Could not resolve a clean hero image for ${target.url}. ${errors.slice(-8).join(" | ")}`);
             }
 
             await sharp(buffer)
