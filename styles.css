@@ -1242,3 +1242,14 @@ button{font:inherit}
     padding-right:13px;
   }
 }
+
+
+/* 2026-10-30 unified Study in Mississippi resource card height */
+.study-resource-band .study-link-card{
+  min-height:640px;
+}
+@media(max-width:700px){
+  .study-resource-band .study-link-card{
+    min-height:530px;
+  }
+}
