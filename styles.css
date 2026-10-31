@@ -1310,3 +1310,12 @@ button{font:inherit}
     gap:30px;
   }
 }
+
+
+/* 2026-10-30 wider header search */
+@media(min-width:1281px){
+  .site-header .header-search{
+    width:267px;
+    min-width:267px;
+  }
+}
