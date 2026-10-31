@@ -88,11 +88,6 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
   // Stable in-page anchors for the formal website structure.
 
-  setClosestId('.section-kicker', 'Institution Profiles', 'article', 'institution-profiles');
-  setClosestId('.section-kicker', 'International Office Contacts', 'article', 'international-office-contacts');
-  const firstMemberGrid = document.querySelector('.member-grid');
-  if (firstMemberGrid && !document.getElementById('external-links')) firstMemberGrid.id = 'external-links';
-
   // These four already have IDs in the page source, but keep the mapping explicit.
   const directory = document.querySelector('#directory');
   if (directory) directory.id = 'directory';
@@ -107,12 +102,8 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
     'about.html': [
       ['Mission', 'mission'],
       ['MAIE Executive Board', 'executive-board'],
-      ['Former Officers', 'former-officers']
-    ],
-    'member-institutions.html': [
-      ['Institution Profiles', 'institution-profiles'],
-      ['International Office Contacts', 'international-office-contacts'],
-      ['External Links', 'external-links']
+      ['Former Officers', 'former-officers'],
+      ['International Office Contacts', 'international-office-contacts']
     ],
     'study-in-mississippi.html': [
       ['Member Institutions Directory', 'directory'],
@@ -188,7 +179,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
 /* Global stylesheet cache version */
 (() => {
-  const version = "20261030-member-directory";
+  const version = "20261030-member-page-retired";
   document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute("href") || "";
     if (/^styles\.css(?:\?|$)/.test(href)) {
