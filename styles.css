@@ -1253,3 +1253,23 @@ button{font:inherit}
     min-height:530px;
   }
 }
+
+
+/* Prospective MAIE member invitation card */
+.prospective-member-card{
+  border-style:dashed;
+  background:#fbfcfe;
+}
+.prospective-member-card:hover{
+  border-color:var(--red);
+  box-shadow:var(--shadow);
+  transform:translateY(-3px);
+}
+.prospective-member-mark{
+  font-size:2.2rem;
+  font-weight:500;
+  line-height:1;
+  color:var(--red);
+  background:#fff7f7;
+  border:1px dashed rgba(179,38,46,.35);
+}
