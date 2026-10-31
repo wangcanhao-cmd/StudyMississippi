@@ -115,7 +115,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
       ['External Links', 'external-links']
     ],
     'study-in-mississippi.html': [
-      ['Mississippi Institutions Directory', 'directory'],
+      ['Member Institutions Directory', 'directory'],
       ['Open Doors data', 'open-doors'],
       ['MS Promo Video', 'ms-promo-video'],
       ['Connect with us', 'connect-with-us'],
@@ -188,7 +188,7 @@ document.querySelectorAll('.site-footer .footer-brand img').forEach(img => {
 
 /* Global stylesheet cache version */
 (() => {
-  const version = "20261027-maie-members";
+  const version = "20261030-member-directory";
   document.querySelectorAll('link[rel="stylesheet"]').forEach(link => {
     const href = link.getAttribute("href") || "";
     if (/^styles\.css(?:\?|$)/.test(href)) {
